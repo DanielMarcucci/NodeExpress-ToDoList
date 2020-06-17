@@ -1,5 +1,5 @@
 const express = require('express')
-const Tasks = require('../models/tasks')
+const Tasks = require('../models/Tasks')
 
 const router = express.Router()
 
@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  Tasks.findOneAndUpdate(req.params.id, req.body)
+  Tasks.findByIdAndUpdate(req.params.id, req.body)
     .then(() => res.sendStatus(204))
 })
 
