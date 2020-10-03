@@ -1,8 +1,11 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+
 const users = require('./routes/users')
 const tasks = require('./routes/tasks')
+const lists = require('./routes/lists')
+
 const app = express()
 
 app.use(bodyParser.json())
@@ -13,6 +16,7 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 
 app.use('/api/users', users)
 app.use('/api/tasks', tasks)
+app.use('/api/lists', lists)
 
 module.exports = app
 // Users.create({
